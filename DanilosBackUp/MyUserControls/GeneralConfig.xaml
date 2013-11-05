@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="DanilosBackUp.MyUserControls.GeneralConfig"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="431"
+             d:DesignWidth="406"
+             mc:Ignorable="d">
+    <Grid Loaded="Grid_Loaded">
+        <GroupBox Name="groupBox1"
+                  Width="382"
+                  Height="143"
+                  Margin="12,22,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Header="Carpeta origen/destino del respaldo">
+            <Grid>
+                <TextBlock Name="TxtSourceDestiny"
+                           Width="358"
+                           Height="75"
+                           Margin="6,6,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Text="{Binding}"
+                           TextWrapping="Wrap" />
+                <Button Name="RbtnCambiarUbicacion"
+                        Width="75"
+                        Height="23"
+                        Margin="281,91,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="RbtnCambiarUbicacion_Click"
+                        Content="Cambiar" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Name="groupBox2"
+                  Width="382"
+                  Height="202"
+                  Margin="12,209,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Header="">
+            <Grid>
+                <TextBlock Name="textBlock1"
+                           Width="330"
+                           Height="23"
+                           Margin="6,6,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Text="El respaldo se realizará:" />
+                <TextBlock Name="TxtDiasRespaldo"
+                           Width="336"
+                           Height="44"
+                           Margin="20,35,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Text="{Binding}"
+                           TextWrapping="Wrap" />
+                <TextBlock Name="textBlock2"
+                           Height="23"
+                           Margin="6,81,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Text="A las:" />
+                <TextBlock Name="TxtHorario"
+                           Width="146"
+                           Height="23"
+                           Margin="124,110,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Text="{Binding}"
+                           TextAlignment="Center" />
+                <Button Name="RbtnDateTimeConfig"
+                        Width="75"
+                        Height="23"
+                        Margin="281,151,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="RbtnDateTimeConfig_Click"
+                        Content="Cambiar" />
+            </Grid>
+        </GroupBox>
+        <CheckBox x:Name="ChkZip"
+                  Width="218"
+                  Margin="12,180,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Content="Comprimir las carpetas respaldadas" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,92 @@
+﻿<telerik:RadWindow x:Class="DanilosBackUp.ConfigWindow"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:MyControls="clr-namespace:DanilosBackUp.MyUserControls"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   Width="567"
+                   Height="531"
+                   Background="#F0F0F0"
+                   Header="Configuración"
+                   Loaded="RadWindow_Loaded"
+                   WindowStartupLocation="CenterScreen">
+    <Grid Width="565" HorizontalAlignment="Left">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="55" />
+        </Grid.RowDefinitions>
+
+        <telerik:RadTabControl x:Name="OptionPanel"
+                               Width="Auto"
+                               Background="#F0F0F0"
+                               BackgroundVisibility="Collapsed"
+                               BorderBrush="#F0F0F0"
+                               BorderThickness="0"
+                               TabOrientation="Vertical"
+                               TabStripPlacement="Left">
+            <telerik:RadTabItem Width="100" Height="100">
+                <telerik:RadTabItem.Header>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                        <Image Width="64"
+                               Height="64"
+                               Source="Resources/Drive.png" />
+                        <TextBlock HorizontalAlignment="Center" Text="General" />
+                    </StackPanel>
+                </telerik:RadTabItem.Header>
+                <MyControls:GeneralConfig x:Name="PathTimeConfig" Margin="0,0,15,0" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Width="100" Height="100">
+                <telerik:RadTabItem.Header>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                        <Image Width="64"
+                               Height="64"
+                               Source="Resources/deny.png" />
+                        <TextBlock HorizontalAlignment="Center" Text="Restricciones" />
+                    </StackPanel>
+                </telerik:RadTabItem.Header>
+                <MyControls:MusicExtensionDiscard x:Name="ExtensionDiscard"
+                                                  Width="Auto"
+                                                  Height="Auto" />
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Width="Auto" Height="Auto">
+                <telerik:RadTabItem.Header>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                        <Image Width="64"
+                               Height="64"
+                               Source="Resources/login.png" />
+                        <TextBlock HorizontalAlignment="Center" Text="Seguridad" />
+                    </StackPanel>
+                </telerik:RadTabItem.Header>
+                <MyControls:SecuritySettings />
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>
+        <telerik:RadButton Name="RbtnAceptar"
+                           Grid.Row="1"
+                           Width="76"
+                           Height="32"
+                           Margin="318,11,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Click="RbtnAceptar_Click"
+                           Content="Aceptar"
+                           IsDefault="True" />
+        <telerik:RadButton Name="RbtnCancelar"
+                           Grid.Row="1"
+                           Width="76"
+                           Height="32"
+                           Margin="410,11,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Click="RbtnCancelar_Click"
+                           Content="Cancelar"
+                           IsCancel="True" />
+        <telerik:RadButton Name="RbtnPredeterminados"
+                           Grid.Row="1"
+                           Width="153"
+                           Height="32"
+                           Margin="16,13,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Click="RbtnPredeterminados_Click"
+                           Content="Valores predeterminados" />
+    </Grid>
+</telerik:RadWindow>

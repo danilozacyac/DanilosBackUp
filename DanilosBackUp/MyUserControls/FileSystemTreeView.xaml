@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="DanilosBackUp.MyUserControls.FileSystemTreeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:files="clr-namespace:DanilosBackUp.FileSystemApi"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             d:DesignHeight="400"
+             d:DesignWidth="350"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+
+        <DataTemplate DataType="{x:Type files:File}">
+            <TextBlock Text="{Binding Name}" />
+        </DataTemplate>
+
+        <HierarchicalDataTemplate DataType="{x:Type files:Directory}" ItemsSource="{Binding Childs}">
+            <TextBlock Text="{Binding Name}" />
+        </HierarchicalDataTemplate>
+
+        <HierarchicalDataTemplate DataType="{x:Type files:Drive}" ItemsSource="{Binding Path=Children}">
+            <Grid>
+                <TextBlock Text="{Binding Name}" />
+            </Grid>
+        </HierarchicalDataTemplate>
+
+        <HierarchicalDataTemplate DataType="{x:Type files:NetworkPcs}">
+            <Grid>
+                <TextBlock Text="{Binding NetworkPcName}" />
+            </Grid>
+        </HierarchicalDataTemplate>
+
+        <Style x:Key="DriveItemStyle" TargetType="{x:Type telerik:RadTreeViewItem}">
+            <Setter Property="IsLoadOnDemandEnabled" Value="{Binding IsReady}" />
+            <Setter Property="IsEnabled" Value="{Binding IsReady}" />
+            <Setter Property="DefaultImageSrc" Value="/Images/Drive.png" />
+            <EventSetter Event="LoadOnDemand" Handler="radTreeView_LoadOnDemand" />
+            <Style.Triggers>
+                <Trigger Property="IsExpanded" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="Foreground" Value="Blue" />
+                        <Setter Property="FontStyle" Value="Italic" />
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="DirectoryItemStyle" TargetType="{x:Type telerik:RadTreeViewItem}">
+            <Setter Property="IsLoadOnDemandEnabled" Value="True" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontStyle" Value="Normal" />
+            <Setter Property="DefaultImageSrc" Value="/Images/Folder.png" />
+            <EventSetter Event="LoadOnDemand" Handler="radTreeView_LoadOnDemand" />
+            <Style.Triggers>
+                <Trigger Property="IsExpanded" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="Foreground" Value="Blue" />
+                        <Setter Property="FontStyle" Value="Italic" />
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="FileItemStyle" TargetType="{x:Type telerik:RadTreeViewItem}">
+            <Setter Property="IsLoadOnDemandEnabled" Value="False" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontStyle" Value="Normal" />
+            <Setter Property="DefaultImageSrc" Value="/Images/File.png" />
+            <Style.Triggers>
+                <Trigger Property="IsExpanded" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="Foreground" Value="Blue" />
+                        <Setter Property="FontStyle" Value="Italic" />
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="NetWorkItemStyle" TargetType="{x:Type telerik:RadTreeViewItem}">
+            <Setter Property="IsLoadOnDemandEnabled" Value="{Binding IsReady}" />
+            <Setter Property="IsEnabled" Value="{Binding IsReady}" />
+            <Setter Property="DefaultImageSrc" Value="/Images/netpc.png" />
+            <EventSetter Event="LoadOnDemand" Handler="radTreeView_LoadOnDemand" />
+            <Style.Triggers>
+                <Trigger Property="IsExpanded" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="Foreground" Value="Blue" />
+                        <Setter Property="FontStyle" Value="Italic" />
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <files:ItemStyleSelector x:Key="ItemStyleSelector"
+                                 DirectoryStyle="{StaticResource DirectoryItemStyle}"
+                                 DriveStyle="{StaticResource DriveItemStyle}"
+                                 FileStyle="{StaticResource FileItemStyle}"
+                                 NetworkStyle="{StaticResource NetWorkItemStyle}" />
+
+
+
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="341*" />
+            <RowDefinition Height="59" />
+        </Grid.RowDefinitions>
+        <telerik:RadTreeView x:Name="radTreeView"
+                             Margin="8"
+                             SelectionChanged="radTreeView_SelectionChanged">
+            <telerik:RadTreeViewItem DefaultImageSrc="/Images/miPc.png"
+                                     Header="MyComputer"
+                                     ItemContainerStyleSelector="{StaticResource ItemStyleSelector}"
+                                     ItemsSource="{Binding Source={x:Static files:ServiceFacade.Instance},
+                                                           Path=Drives}" />
+            <telerik:RadTreeViewItem DefaultImageSrc="/Images/network.png"
+                                     Header="Red"
+                                     ItemContainerStyleSelector="{StaticResource ItemStyleSelector}"
+                                     ItemsSource="{Binding Source={x:Static files:ServiceFacade.Instance},
+                                                           Path=Nets}" />
+        </telerik:RadTreeView>
+        <TextBox Name="TxtPath"
+                 Grid.Row="1"
+                 Width="326"
+                 Height="23"
+                 Margin="12,30,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top" />
+        <TextBlock Name="textBlock1"
+                   Grid.Row="1"
+                   Height="23"
+                   Margin="12,9,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text="Carpeta seleccionada:" />
+    </Grid>
+</UserControl>

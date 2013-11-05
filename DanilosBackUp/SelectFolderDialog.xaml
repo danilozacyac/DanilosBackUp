@@ -1,0 +1,23 @@
+﻿<telerik:RadWindow x:Class="DanilosBackUp.SelectFolderDialog"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+		Header="SelectFolderDialog" xmlns:MyControl="clr-namespace:DanilosBackUp.MyUserControls"
+         Height="460" Width="375" Loaded="RadWindow_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="326*" />
+            <RowDefinition Height="47" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="2" >
+            
+            <MyControl:FileSystemTreeView Grid.Column="0" x:Name="SelectFolder" >
+
+            </MyControl:FileSystemTreeView>
+        </Grid>
+        <telerik:RadButton Content="Aceptar" Height="23" HorizontalAlignment="Left" IsDefault="True" Margin="185,12,0,0" Name="RbtnAceptar" VerticalAlignment="Top" Width="76" Grid.Row="3" Click="RbtnAceptar_Click" />
+        <telerik:RadButton Content="Cancelar" Height="23" HorizontalAlignment="Right" IsCancel="True" Margin="0,12,12,0" Name="RbtnCancelar" VerticalAlignment="Top" Width="76" Grid.Row="3" Click="RbtnCancelar_Click" />
+    </Grid>
+</telerik:RadWindow>

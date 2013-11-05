@@ -1,0 +1,60 @@
+﻿<telerik:RadWindow x:Class="DanilosBackUp.LogIn"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   x:Name="Log"
+                   Width="270"
+                   Height="244"
+                   Background="#F0F0F0"
+                   WindowStartupLocation="CenterScreen"
+                   Header="LogIn"
+                   Loaded="Log_Loaded"
+                   ResizeMode="NoResize">
+    <Grid FocusManager.FocusedElement="{Binding ElementName=TxtUsuario}">
+        <TextBlock Margin="22,21,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontSize="14"
+                   Text="Usuario:"
+                   TextWrapping="Wrap" />
+        <TextBox x:Name="TxtUsuario"
+                 Width="215"
+                 Height="23"
+                 
+                 Margin="22,45,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 TextWrapping="Wrap" />
+        <TextBlock Margin="22,91,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontSize="14"
+                   Text="Contraseña:"
+                   TextWrapping="Wrap" />
+        <PasswordBox x:Name="TxtPassword"
+                     Width="215"
+                     Height="23"
+                     Margin="22,115,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+        <telerik:RadButton x:Name="RbtnCancelar"
+                           Width="72"
+                           Height="25"
+                           Margin="165,159,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Click="RbtnCancelar_Click"
+                           Content="Cancelar"
+                           IsCancel="True" />
+        <telerik:RadButton x:Name="RbtnAceptar"
+                           Width="72"
+                           Height="25"
+                           Margin="78,159,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Click="RbtnAceptar_Click"
+                           Content="Aceptar"
+                           IsDefault="True" />
+
+    </Grid>
+</telerik:RadWindow>
