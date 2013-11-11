@@ -11,14 +11,14 @@ namespace DanilosBackUp
     public partial class App : Application
     {
 
-            protected override void OnSessionEnding(SessionEndingCancelEventArgs e)
-            {
-                // Always call method in base class, so that the event gets raised.
-                base.OnSessionEnding(e);
+            //protected override void OnSessionEnding(SessionEndingCancelEventArgs e)
+            //{
+            //    // Always call method in base class, so that the event gets raised.
+            //    base.OnSessionEnding(e);
 
-                // Place your own SessionEnding logic here
-                BackUpApi.BackUpProcessVerify();
-            }
+            //    // Place your own SessionEnding logic here
+            //    BackUpApi.BackUpProcessVerify();
+            //}
 
     }
 }
