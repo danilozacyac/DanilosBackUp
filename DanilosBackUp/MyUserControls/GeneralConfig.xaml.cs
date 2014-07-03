@@ -61,5 +61,10 @@ namespace DanilosBackUp.MyUserControls
             this.Effect = null;
             this.Background = current;
         }
+
+        private void ChkZip_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

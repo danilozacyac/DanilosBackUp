@@ -6,9 +6,9 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EnterpriseBackUp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("GALT Enterprise BackUp Software is develope from enterprise to enterprise, this software prevents the lost of important documents and its changes due to its constant check for updates, as default settings takes away files like images, movies and music to save space in the final store place. To operate the software an administrator password has to be set.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Danilo's Software Development")]
+[assembly: AssemblyCompany("GALT Software Development")]
 [assembly: AssemblyProduct("EnterpriseBackUp")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]

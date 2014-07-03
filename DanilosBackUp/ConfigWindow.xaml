@@ -32,7 +32,9 @@
                         <TextBlock HorizontalAlignment="Center" Text="General" />
                     </StackPanel>
                 </telerik:RadTabItem.Header>
-                <MyControls:GeneralConfig x:Name="PathTimeConfig" Margin="0,0,15,0" />
+                <MyControls:GeneralConfig x:Name="PathTimeConfig"
+                                          Margin="0,0,15,0"
+                                          Loaded="PathTimeConfig_Loaded" />
             </telerik:RadTabItem>
             <telerik:RadTabItem Width="100" Height="100">
                 <telerik:RadTabItem.Header>
@@ -87,6 +89,7 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
                            Click="RbtnPredeterminados_Click"
-                           Content="Valores predeterminados" />
+                           Content="Valores predeterminados"
+                           Visibility="Hidden" />
     </Grid>
 </telerik:RadWindow>

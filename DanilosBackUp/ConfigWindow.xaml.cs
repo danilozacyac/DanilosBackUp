@@ -88,5 +88,10 @@ namespace DanilosBackUp
         {
            
         }
+
+        private void PathTimeConfig_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

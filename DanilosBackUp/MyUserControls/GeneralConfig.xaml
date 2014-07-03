@@ -85,6 +85,7 @@
                   Margin="12,180,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
-                  Content="Comprimir las carpetas respaldadas" />
+                  Visibility="Collapsed"
+                  Content="Comprimir las carpetas respaldadas" Checked="ChkZip_Checked" />
     </Grid>
 </UserControl>

@@ -156,8 +156,8 @@ namespace DanilosBackUp
 
         private void About_Click(object sender, RoutedEventArgs e)
         {
-            //About about = new About();
-            //about.ShowDialog();
+            GaltAbout about = new GaltAbout();
+            about.ShowDialog();
         }
 
         
